@@ -27,11 +27,6 @@ let tomorrow_high = null;
 let global_res = null;
 
 
-
-
-
-
-
 // render '/' page (index page)
 app.get("/", function (req, res) {
  
@@ -57,7 +52,9 @@ app.get("/", function (req, res) {
         console.log('day.high: ', day.high);
     }
     console.log(location, current_fahrenheit);
-    tomorrow_high = days[1].high
+    tomorrow_high = days[2].high
+    tomorrow_high = (tomorrow_high - 32)*5/9
+    console.log('tomorrow HIGH: ', tomorrow_high)
     // console.log('forecast: ', forecast);
     global_res = res
     setTimeout(verder,1000);
@@ -67,12 +64,10 @@ app.get("/", function (req, res) {
 
 function verder() {
   let weather_discount = 1
-  let tomorrow_high = 1
-  tomorrow_high = (tomorrow_high - 32)*5/9
-  if (tomorrow_high =< 17 && tomorrow_high > 10) {
+  if (tomorrow_high <= 17 && tomorrow_high > 10) {
     weather_discount = 1.1
   }
-  else if (tomorrow_high =< 24 && tomorrow_high > 24) {
+  else if (tomorrow_high <= 24 && tomorrow_high > 24) {
     weather_discount = 1.12
   }
   else if (tomorrow_high >= 24) {
@@ -80,7 +75,7 @@ function verder() {
   }
 
 	console.log('rendering index...');
-	global_res.render("index", {tomorrow_high: tomorrow_high});
+	global_res.render("index", {tomorrow_high: tomorrow_high, weather_discount: weather_discount});
 };
 
 

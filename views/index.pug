@@ -19,17 +19,6 @@ html
       h1 De weer discount is:
       p#weather_discountt(style='color:green')
       script.
-        weather_discount = 1
-        tomorrow_high = (tomorrow_high - 32)*5/9
-        if (tomorrow_high =< 17 && tomorrow_high > 10) {
-          weather_discount = 1.1
-        }
-        else if (tomorrow_high =< 24 && tomorrow_high > 24) {
-          weather_discount = 1.12
-        }
-        else if (tomorrow_high >= 24) {
-          weather_discount = 1.2
-        }
         document.getElementById("weather_discountt").innerHTML ="De weather discount is: "+weather_discount;
         
       td #{weather_discount}
