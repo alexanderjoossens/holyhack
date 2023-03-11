@@ -6,6 +6,8 @@ html
 
   body
     - var tomorrow_high
+    - var total
+    - var weather_discount
 
     //- - var weather_discount
     header_homepage SmartPrice
@@ -42,8 +44,12 @@ html
         if (age <= 64 && 12 <= age) {age_disc = 0;}
         if (65 <= age) {age_disc = -price*0.1;}
        
-        //- var temp = document.getElementById("temperature").value;
-        //- var temp_disc = null;
+        //- var temp_disc = document.getElementById("weather_discountt").value;
+        //- temp_disc=temp_disc.replace("De weather discount is: ", "");
+        //- temp_disc=temp_disc.trim();
+        //- temp_disc = parseFloat(temp_disc);
+        //- t_disc = Math.round((temp_disc-1)*price);
+        //- t_disc = parseInt(t_disc);
         //- if (temp < 10) {temp_disc = 0;}
         //- if (10 <= temp && temp <= 17) {temp_disc = price*0.1;}
         //- if (17 < temp && temp <= 24) {temp_disc = price*0.15;}
@@ -77,8 +83,8 @@ html
 
         document.getElementById("demo").innerHTML =
         "De ticketprijs is: "+ total +"€";
-        //- uiteindelijke var: -> price+weather_disc+day_disc+temp_disc+cap_disc+age_disc
-        }
+        //- uiteindelijke var: -> price+weather_disc+day_disc+t_disc+cap_disc+age_disc
+        } //-price+weather_disc+age_disc+
 
     //- a(href='/authorize' style='font-size:30px; display:block;text-align:center;padding-top:50px;padding-bottom:50px;') Log in
     img(src='/images/image.png' alt='flyer_img' style='display: block; margin-left:auto; margin-right: auto; width:50%;')

@@ -68,7 +68,7 @@ function verder() {
   if (tomorrow_high <= 17 && tomorrow_high > 10) {
     weather_discount = 1.1
   }
-  else if (tomorrow_high <= 24 && tomorrow_high > 24) {
+  else if (tomorrow_high <= 24 && tomorrow_high > 17) {
     weather_discount = 1.12
   }
   else if (tomorrow_high >= 24) {
