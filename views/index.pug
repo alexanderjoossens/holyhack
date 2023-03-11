@@ -6,6 +6,7 @@ html
 
   body
     - var tomorrow_high
+
     //- - var weather_discount
     header_homepage SmartPrice
     subheader_homepage Theme Park Ticket Price Calculator
@@ -35,40 +36,48 @@ html
         function EnterName()
         {
         var age = document.getElementById("age").value;
+        var age_disc = null;
         age = parseInt(age);
-        if (age <= 11) {discount *= 0.8;}
-        if (12 <= age <= 64) {discount *= 1;}
-        if (65 <= age) {discount *= 0.9;}
+        if (age <= 11) {age_disc = -price*0.2;}
+        if (age <= 64 && 12 <= age) {age_disc = 0;}
+        if (65 <= age) {age_disc = -price*0.1;}
        
         //- var temp = document.getElementById("temperature").value;
-        //- if (temp < 10) {discount *= 1;}
-        //- if (10 <= temp <= 17) {discount *= 1.1;}
-        //- if (17 < temp <= 24) {temp_discount *= 1.15;}
-        //- if (24 < temp) {temp_discount *= 1.2;}
+        //- var temp_disc = null;
+        //- if (temp < 10) {temp_disc = 0;}
+        //- if (10 <= temp && temp <= 17) {temp_disc = price*0.1;}
+        //- if (17 < temp && temp <= 24) {temp_disc = price*0.15;}
+        //- if (24 < temp) {temp_disc = price*0.2;}
 
         //- var cap = document.getElementById("capacity").value;
         //- cap = parseInt(cap);
-        //- if (cap < 75) {cap_discount *= 1;}
-        //- if (75 <= cap <= 90) {cap_discount *= 1.05;}
-        //- if (90 < cap <= 95) {cap_discount *= 1.1;}
-        //- if (95 < cap) {cap_discount *= 1.2;}
+        //- var cap_disc = null;
+        //- if (cap < 75) {cap_disc = 0;}
+        //- if (75 <= cap && cap <= 90) {cap_disc = price*0.05;}
+        //- if (90 < cap && cap <= 95) {cap_disc = price*0.1;}
+        //- if (95 < cap) {cap_disc = price*0.2;}
 
         //- var day = document.getElementById("day").value;
-        //- if (day == "maandag") {day_discount *= 1;}
-        //- if (day == "dinsdag") {day_discount *= 1;}
-        //- if (day == "woensdag") {day_discount *= 1.05;}
-        //- if (day == "donderdag") {day_discount *= 1;}
-        //- if (day == "vrijdag") {day_discount *= 1.1;}
-        //- if (day == "zaterdag") {day_discount *= 1.2;}
-        //- if (day == "zondag") {day_discount *= 1.2;}
+        //- var day_disc = null;
+        //- if (day == "maandag") {day_disc = 0;}
+        //- if (day == "dinsdag") {day_disc = 0;}
+        //- if (day == "woensdag") {day_disc = price*0.05;}
+        //- if (day == "donderdag") {day_disc = 0;}
+        //- if (day == "vrijdag") {day_disc = price*0.1;}
+        //- if (day == "zaterdag") {day_disc = price*0.2;}
+        //- if (day == "zondag") {day_disc = price*0.2;}
 
         var weather = document.getElementById("weather").value;
-        if (weather == "regen") {discount *= 0.9;}
-        if (weather == "neutraal") {discount *= 1;}
-        if (weather == "zonnig") {discount *= 1.1;}
+        var weather_disc = null;
+        if (weather == "regen") {weather_disc = -price*0.1;}
+        if (weather == "neutraal") {weather_disc = 0;}
+        if (weather == "zonnig") {weather_disc = price*0.1;}
+
+        var total = price+weather_disc+age_disc;
 
         document.getElementById("demo").innerHTML =
-        "De ticketprijs is: "+ price*discount +"€";
+        "De ticketprijs is: "+ total +"€";
+        //- uiteindelijke var: -> price+weather_disc+day_disc+temp_disc+cap_disc+age_disc
         }
 
     //- a(href='/authorize' style='font-size:30px; display:block;text-align:center;padding-top:50px;padding-bottom:50px;') Log in
