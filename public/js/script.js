@@ -16,5 +16,5 @@
     //         this.innerHTML = "Almost ready...";
     //         this.style = "background: #f1f5f4; color: #333; pointer-events: none";
     //     },2000);
-    // }    
+    // }
 // })

@@ -29,6 +29,8 @@ html
       h1 Weer (regen, neutraal, zonnig)
       input#weather(type='text')
       button(type='button' onclick='EnterName()') Bereken de ticketprijs
+      .slidecontainer
+      input#myRange.slider(type='range' min='1' max='100' value='50')
       p#demo(style='color:green')
       script.
         var price = 40;
@@ -43,6 +45,15 @@ html
         }
         if (weather == "regen") {
           discount *= 0.9;
+        }
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+          output.innerHTML = this.value;
         }
         document.getElementById("demo").innerHTML =
         "De ticketprijs is: "+ price*discount +"€";
