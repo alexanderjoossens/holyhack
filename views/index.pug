@@ -13,8 +13,7 @@ html
     .centering
 
       h1 Het weer wordt morgen: 
-      td #{tomorrow_high}
-      td #{weather_discount}
+      td #{Math.round(tomorrow_high)} °C 
       p
       h1 De weer discount is:
       p#weather_discountt(style='color:green')
@@ -45,7 +44,7 @@ html
           discount *= 0.9;
         }
         document.getElementById("demo").innerHTML =
-        "De ticketprijs is: "+ price*discount +"€";
+        "De ticketprijs is: "+ Math.round(price*discount) +"€";
         }
 
     //- a(href='/authorize' style='font-size:30px; display:block;text-align:center;padding-top:50px;padding-bottom:50px;') Log in
