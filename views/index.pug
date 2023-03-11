@@ -13,8 +13,7 @@ html
     .centering
 
       h1 Het weer wordt morgen: 
-      td #{tomorrow_high}
-      td #{weather_discount}
+      td #{Math.round(tomorrow_high)} °C
       p
       h1 De weer discount is:
       p#weather_discountt(style='color:green')
