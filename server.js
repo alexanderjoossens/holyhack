@@ -62,6 +62,7 @@ app.get("/", function (req, res) {
   });
 });
 
+
 function verder() {
   let weather_discount = 1
   if (tomorrow_high <= 17 && tomorrow_high > 10) {

@@ -8,12 +8,13 @@ html
     - var tomorrow_high
     //- - var weather_discount
     header_homepage SmartPrice
-    subheader_homepage Pairi Daisa Ticket Price Calculator
+    subheader_homepage Theme Park Ticket Price Calculator
     form(action='/', method='POST')
     .centering
 
       h1 Het weer wordt morgen: 
-      td #{Math.round(tomorrow_high)} °C 
+      td #{tomorrow_high}
+      td #{weather_discount}
       p
       h1 De weer discount is:
       p#weather_discountt(style='color:green')
@@ -28,39 +29,51 @@ html
       h1 Weer (regen, neutraal, zonnig)
       input#weather(type='text')
       button(type='button' onclick='EnterName()') Bereken de ticketprijs
-      .slidecontainer
-      h1 Aantal nog beschikbare tickets
-      input#myRange.slider(type='range' min='1' max='100' value='50')
       p#demo(style='color:green')
       script.
         var price = 40;
         var discount = 1;
         function EnterName()
         {
-        var age= document.getElementById("age").value;
-        var weather= document.getElementById("weather").value;
+        var age = document.getElementById("age").value;
         age = parseInt(age);
-        if (age < 19) {
-          discount *= 0.5;
-        }
-        if (weather == "regen") {
-          discount *= 0.9;
-        }
+        if (0 <= age <= 11) {discount *= 0.8;}
+        if (12 <= age <= 64) {discount *= 1;}
+        if (65 <= age) {discount *= 0.9;}
+       
+        //- var temp = document.getElementById("temperature").value;
+        //- if (temp < 10) {discount *= 1;}
+        //- if (10 <= temp <= 17) {discount *= 1.1;}
+        //- if (17 < temp <= 24) {temp_discount *= 1.15;}
+        //- if (24 < temp) {temp_discount *= 1.2;}
 
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value; // Display the default slider value
+        //- var cap = document.getElementById("capacity").value;
+        //- cap = parseInt(cap);
+        //- if (cap < 75) {cap_discount *= 1;}
+        //- if (75 <= cap <= 90) {cap_discount *= 1.05;}
+        //- if (90 < cap <= 95) {cap_discount *= 1.1;}
+        //- if (95 < cap) {cap_discount *= 1.2;}
 
-        // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function() {
-          output.innerHTML = this.value;
-        }
+        //- var day = document.getElementById("day").value;
+        //- if (day == "maandag") {day_discount *= 1;}
+        //- if (day == "dinsdag") {day_discount *= 1;}
+        //- if (day == "woensdag") {day_discount *= 1.05;}
+        //- if (day == "donderdag") {day_discount *= 1;}
+        //- if (day == "vrijdag") {day_discount *= 1.1;}
+        //- if (day == "zaterdag") {day_discount *= 1.2;}
+        //- if (day == "zondag") {day_discount *= 1.2;}
+
+        var weather = document.getElementById("weather").value;
+        if (weather == "regen") {discount *= 0.9;}
+        if (weather == "neutraal") {discount *= 1;}
+        if (weather == "zonnig") {discount *= 1.1;}
+
         document.getElementById("demo").innerHTML =
-        "De ticketprijs is: "+ Math.round(price*discount) +"€";
+        "De ticketprijs is: "+ price*discount +"€";
         }
 
     //- a(href='/authorize' style='font-size:30px; display:block;text-align:center;padding-top:50px;padding-bottom:50px;') Log in
-    img(src='/images/dieren.jpg' alt='flyer_img' style='display: block; margin-left:auto; margin-right: auto; width:50%;')
+    img(src='/images/image.png' alt='flyer_img' style='display: block; margin-left:auto; margin-right: auto; width:50%;')
     
 
     
