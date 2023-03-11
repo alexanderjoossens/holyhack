@@ -36,7 +36,7 @@ html
         {
         var age = document.getElementById("age").value;
         age = parseInt(age);
-        if (0 <= age <= 11) {discount *= 0.8;}
+        if (age <= 11) {discount *= 0.8;}
         if (12 <= age <= 64) {discount *= 1;}
         if (65 <= age) {discount *= 0.9;}
        
