@@ -8,7 +8,7 @@ html
     - var tomorrow_high
     //- - var weather_discount
     header_homepage SmartPrice
-    subheader_homepage Theme Park Ticket Price Calculator
+    subheader_homepage Pairi Daisa Ticket Price Calculator
     form(action='/', method='POST')
     .centering
 
@@ -30,6 +30,7 @@ html
       input#weather(type='text')
       button(type='button' onclick='EnterName()') Bereken de ticketprijs
       .slidecontainer
+      h1 Aantal nog beschikbare tickets
       input#myRange.slider(type='range' min='1' max='100' value='50')
       p#demo(style='color:green')
       script.
@@ -60,7 +61,7 @@ html
         }
 
     //- a(href='/authorize' style='font-size:30px; display:block;text-align:center;padding-top:50px;padding-bottom:50px;') Log in
-    img(src='/images/image.png' alt='flyer_img' style='display: block; margin-left:auto; margin-right: auto; width:50%;')
+    img(src='/images/dieren.jpg' alt='flyer_img' style='display: block; margin-left:auto; margin-right: auto; width:50%;')
     
 
     
